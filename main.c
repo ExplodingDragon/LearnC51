@@ -9,26 +9,29 @@ void delay(unsigned int t) {
 
 int main() {
     P2 = 0xFF;
-    int d = 500;
+    int vol = 0;
     while (1) {
-        P2 = 0xFF; // 1111 1111
-        delay(d);
-        P2 = 0xFE; // 1111 1110
-        delay(d);
-        P2 = 0xFD; // 1111 1101
-        delay(d);
-        P2 = 0xFB; // 1111 1011
-        delay(d);
-        P2 = 0xF7; // 1111 0111
-        delay(d);
-        P2 = 0xEF; // 1110 1111
-        delay(d);
-        P2 = 0xDF; // 1101 1111
-        delay(d);
-        P2 = 0xBF; // 1011 1111
-        delay(d);
-        P2 = 0x7F; // 0111 1111
-        delay(d);
+        if (P3_1 == 0) {
+            delay(50);
+            while (P3_1 == 0);
+            delay(50);
+            vol--;
+            if (vol < 0) {
+                vol = 0;
+            }
+            P2 = 0xFF << vol;
+        }
+        if (P3_0 == 0) {
+            delay(50);
+            while (P3_0 == 0);
+            delay(50);
+
+            vol++;
+            if (vol > 8) {
+                vol = 8;
+            }
+            P2 = 0xFF << vol;
+        }
 
     }
     return 0;
