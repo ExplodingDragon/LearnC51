@@ -9,5 +9,9 @@ function(ihx_to_hex bin)
 endfunction(ihx_to_hex)
 
 include_directories("include" /usr/share/sdcc/include ./include)
-add_executable(${PROJECT_NAME} src/main.c include/utils/delay.h include/utils/delay.c include/c52/regx52.h include/lcd/LCD1602.c include/lcd/LCD1602.h)
+add_executable(${PROJECT_NAME} include/c52/regx52.h
+        include/utils/delay.h include/utils/delay.c
+        include/lcd/LCD1602.c include/lcd/LCD1602.h
+        include/key/key.c include/key/key.h
+        src/main.c)
 ihx_to_hex(${PROJECT_NAME})

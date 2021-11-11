@@ -1,7 +1,6 @@
 //
 // Created by dragon on 2021/11/11.
 //
-//#include <mcs51/8051.h>
 #include "delay.h"
 #include "c52/regx52.h"
 
