@@ -7,6 +7,7 @@
 
 void displayNum(int index, int number);
 
+
 void delay(unsigned int t);
 
 #endif //LEARN_C51_DELAY_H
