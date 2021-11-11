@@ -1,4 +1,11 @@
-#include<mcs51/8051.h>
+//
+// Created by dragon on 2021/11/11.
+//
+#include <mcs51/8051.h>
+
+unsigned int num[] = {
+        0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0xF7, 0xFF, 0xB9, 0b10111111, 0b11111001, 0b11110001
+};
 
 void delay(unsigned int t) {
     unsigned int a, b;
@@ -7,12 +14,8 @@ void delay(unsigned int t) {
     }
 }
 
-//10101101
-unsigned int num[] = {
-        0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F
-};
 
-void show(int index, int number) {
+void displayNum(int index, int number) {
     switch (index) {
         case 0:
             P2_2 = 1;
@@ -60,35 +63,4 @@ void show(int index, int number) {
     P0 = 0x00;
 
 
-}
-
-int main() {
-    unsigned int n = 0;
-    while (1) {
-        if (P3_1 == 0) {
-            delay(10);
-            if (n-- <= 1) {
-                n = 1;
-            }
-
-        }
-        if (P3_0 == 0) {
-            delay(10);
-            if (n++ > 200) {
-                n = 200;
-            }
-        }
-        show(0, 1);
-        show(1, 2);
-        show(2, 3);
-        show(3, 4);
-        show(5, n / 100);
-        show(6, n / 10 % 10);
-        show(7, n % 10);
-
-        P0 = 0x00;
-        delay(n);
-
-    }
-    return 0;
 }
