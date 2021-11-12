@@ -13,5 +13,5 @@ add_executable(${PROJECT_NAME} include/c52/regx52.h
         include/utils/delay.h include/utils/delay.c
         include/lcd/LCD1602.c include/lcd/LCD1602.h
         include/key/key.c include/key/key.h
-        src/main.c)
+        src/main.c include/timer/time.c include/timer/time.h)
 ihx_to_hex(${PROJECT_NAME})

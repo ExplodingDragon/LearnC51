@@ -2,22 +2,11 @@
 #include "lcd/LCD1602.h"
 #include "key/key.h"
 #include "utils/delay.h"
-
-void Time0_Init() {
-//    TMOD = 0b00000001;
-    TMOD = TMOD & 0xF0;
-    TMOD = TMOD | 0x01; // 处理不可位寻址常用方法
-
-    TF0 = 0;
-    TR0 = 1;
-    TH0 = 64535 / 256;
-    TL0 = 64535 % 256;
-    ET0 = 1;
-    EA = 1;
-    PT0 = 0;
-}
+#include "timer/time.h"
 
 unsigned int count = 0;
+
+unsigned int indexInt = 0;
 
 int main() {
     Time0_Init();
@@ -27,16 +16,22 @@ int main() {
     return 0;
 }
 
-
 void timer0_routine()
 
 __interrupt (1) {
 //void timer0_routine() {
-TH0 = 64535 / 256;
-TL0 = 64535 % 256;
+
+TH0 = 0xFC;
+TL0 = 0x18;
 count++;
-if(count>=1000){
+if (count >= 500) {
 count = 0;
-P2_0 = !P2_0;
+
+P2 = (0b00000001 << indexInt) ^ 0xFF;
+indexInt++;
+if (indexInt > 7) {
+indexInt = 0;
 }
 }
+}
+
