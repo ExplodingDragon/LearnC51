@@ -10,6 +10,20 @@
 // RCK = 3^5
 // SCK = 3^6
 // SER = 3^4
+
+/*
+ * 74HC595：
+ * 初始化：
+ * SCK = LOW,
+ * SCK = LOW,
+ *
+ * SER 写入 1 bit
+ * SCK 拉高推入，
+ * SCK 复位，
+ *
+ * RCK 拉高推送数据
+ * RCK 复位
+ */
 void write_byte(unsigned char byte) {
 
     for (int i = 0; i < 8; i++) {
