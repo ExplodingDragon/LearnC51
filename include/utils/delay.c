@@ -25,6 +25,16 @@ void delay(unsigned int t) {
     }
 }
 
+void display(int num) {
+    if (num < 0) {
+        num = -num;
+    }
+    displayNum(3, num / 10000 % 10);
+    displayNum(4, num / 1000 % 10);
+    displayNum(5, num / 100 % 10);
+    displayNum(6, num / 10 % 10);
+    displayNum(7, num % 10);
+}
 
 void displayNum(int index, int number) {
     P2_2 = select[index][0];
