@@ -13,6 +13,8 @@ void UartInit(void)        //9600bps@11.0592MHz
     TH1 = 0xFD;        //设置定时重载值
     ET1 = 0;        //禁止定时器  1 中断
     TR1 = 1;        //定时器1开始计时
+    EA = 1;
+    ES = 1;
 }
 
 void Send_Byte(unsigned int byte) {

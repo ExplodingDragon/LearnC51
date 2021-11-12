@@ -8,5 +8,6 @@ cmake "$OLD_DIR"
 make
 echo ================= Push ===================
 echo stcflash $BUILD_DIR/*.hex
+ls -al $BUILD_DIR | grep *.hex
 stcflash $BUILD_DIR/*.hex
 exit 0
