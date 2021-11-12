@@ -6,3 +6,4 @@ cd $BUILD_DIR || exit
 echo ================= Build ===================
 cmake "$OLD_DIR"
 make
+echo =============== Build Finish ==============

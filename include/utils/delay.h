@@ -5,11 +5,6 @@
 #ifndef LEARN_C51_DELAY_H
 #define LEARN_C51_DELAY_H
 
-void displayNum(int index, int number);
-
-
-void delay(unsigned int t);
-
-void display(int num);
+void DelayMs(unsigned int t);
 
 #endif //LEARN_C51_DELAY_H
