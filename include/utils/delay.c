@@ -4,12 +4,10 @@
 #include "delay.h"
 #include "c52/regx52.h"
 
-void _nop_();
 
 void Delay1ms()        //@11.0592MHz
 {
     unsigned char i, j;
-    _nop_();
     i = 2;
     j = 199;
     do {
@@ -17,9 +15,8 @@ void Delay1ms()        //@11.0592MHz
     } while (--i);
 }
 
-void _nop_() {
 
-}
+
 
 void DelayMs(unsigned int t) {
     unsigned int a;

@@ -17,5 +17,5 @@ add_executable(${PROJECT_NAME} include/c52/regx52.h
         include/time/time.c
         include/time/time.h
         include/uart/uart.h
-        include/uart/uart.c include/num/num.c include/num/num.h)
+        include/uart/uart.c include/num/num.c include/num/num.h include/mled/mled.c include/mled/mled.h)
 ihx_to_hex(${PROJECT_NAME})

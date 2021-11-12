@@ -6,5 +6,6 @@
 #define LEARN_C51_DELAY_H
 
 void DelayMs(unsigned int t);
+void Delay1ms();
 
 #endif //LEARN_C51_DELAY_H
